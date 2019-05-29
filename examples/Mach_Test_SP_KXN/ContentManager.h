@@ -4,10 +4,12 @@
 #include <LiquidCrystal_I2C.h>
 #include "Sieu_Am.h"
 
+/*--------------------------------User define------------------------------*/
 enum{
   SIEU_AM_DEVICE_ID=0,
   LAST_ID_DEVICE
 };
+/*================================End user define==========================*/
 
 extern Data_Adapter *listDevide[LAST_ID_DEVICE];
 

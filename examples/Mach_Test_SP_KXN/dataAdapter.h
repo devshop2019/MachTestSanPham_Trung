@@ -6,7 +6,7 @@
 class Data_Adapter{
   public:
   
-  Data_Adapter();
+  Data_Adapter(){};
   virtual ~Data_Adapter(){};
   
   unsigned long timeInterval;
@@ -14,6 +14,8 @@ class Data_Adapter{
   String valueDevice;
 
   virtual bool getData(){};
+  virtual bool init(){};
+  virtual bool deInit(){};
    
 };
 

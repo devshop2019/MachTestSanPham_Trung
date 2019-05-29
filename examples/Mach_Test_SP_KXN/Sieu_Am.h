@@ -4,12 +4,14 @@
 #include "dataAdapter.h"
 #include <HCSR04.h>
 
-extern UltraSonicDistanceSensor distanceSensor;
+extern UltraSonicDistanceSensor * distanceSensor;
 
 class SieuAm_Data: public Data_Adapter{
   public:
   SieuAm_Data();
   bool getData();
+  bool init();
+  bool deInit();
 };
 
 extern SieuAm_Data sieuAm_Device;

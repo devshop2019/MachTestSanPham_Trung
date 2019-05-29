@@ -53,10 +53,7 @@ void loop()
   Start.loop(); // Xử lý nút Start
   Up.loop();    // Xử lý nút Up
   Down.loop();  // Xử lý nút Down
-  //
-//  Test_Choseen_Menu();  // Hàm kiểm tra mục Menu có hợp lệ không
   Test_Choseen_Menu2();
-//  Test_SP();            // Hàm chọn mục SP để test
   Test_SP2();
 }
 // ---------------------------------------------------------------------------------------
@@ -122,7 +119,7 @@ void Test_SP()
       lcd.setCursor(2,0);     // Cột 2 dòng 0
       lcd.print("CB SIEU AM");
       lcd.setCursor(2,1);     // Cột 2 dòng 0
-      lcd.print(distanceSensor.measureDistanceCm());
+//      lcd.print(distanceSensor.measureDistanceCm());
       lcd.print(" cm");
     }
   }
