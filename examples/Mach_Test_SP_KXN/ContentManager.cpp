@@ -1,6 +1,9 @@
 #include "ContentManager.h"
 
-Data_Adapter *listDevide[LAST_ID_DEVICE] = {&sieuAm_Device};
+Data_Adapter *listDevide[LAST_ID_DEVICE] = {
+                                              &Dht_Device,
+                                              &sieuAm_Device
+                                           };
 
 void Test_SP2()
 {
@@ -22,3 +25,14 @@ void Test_Choseen_Menu2() /* Có các mục menu 1 - 2 - 3 - 4*/
   if(Choseen_Menu > LAST_ID_DEVICE) {Choseen_Menu = 0;}
   if(Choseen_Menu <0) {Choseen_Menu = LAST_ID_DEVICE;}
 }
+
+void initContentManager(){
+  if(listDevide[Choseen_Menu])
+  listDevide[Choseen_Menu]->init();
+}
+
+void deInitContentManager(){
+  if(listDevide[Choseen_Menu])
+  listDevide[Choseen_Menu]->deInit();
+}
+

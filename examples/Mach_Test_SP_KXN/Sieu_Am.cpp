@@ -16,13 +16,14 @@ bool SieuAm_Data::getData() {
 }
 
 bool SieuAm_Data::init(){
+  deInit();
   distanceSensor = new (UltraSonicDistanceSensor)(TRIG_PIN, ECHO_PIN);
 }
 
 bool SieuAm_Data::deInit(){
-  delete distanceSensor;
+  if(distanceSensor) delete distanceSensor;
   pinMode(TRIG_PIN, INPUT);
-  pinMode(TRIG_PIN, ECHO_PIN);
+  pinMode(TRIG_PIN, INPUT);
 }
 
 SieuAm_Data sieuAm_Device;

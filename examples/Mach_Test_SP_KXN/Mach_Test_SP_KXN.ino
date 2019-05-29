@@ -26,6 +26,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);   // Cài đặt địa chỉ 0x27, hiển th�
 void setup() 
 {
   Serial.begin(9600);
+  
   debug("Start!");
   //
   //Start.button_1ClickHold
@@ -62,6 +63,7 @@ void loop()
 void Start_do_1_Click()
 {
   debugln("1 Click: Do it!");
+  initContentManager();
 }
 void Start_do_2_Click()
 {
@@ -71,23 +73,27 @@ void Start_do_2_Click()
 // Hàm cho nút nhấn Up
 void Up_do_0_Click()
 {
+  deInitContentManager();
   Choseen_Menu++;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
 }
 void Up_do_1_Click()
 {
+  deInitContentManager();
   Choseen_Menu++;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
 }
 
 // Hàm cho nút nhấn Down
 void Down_do_0_Click()
-{
+{ 
+  deInitContentManager();
   Choseen_Menu--;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
 }
 void Down_do_1_Click()
 {
+  deInitContentManager();
   Choseen_Menu--;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
 }

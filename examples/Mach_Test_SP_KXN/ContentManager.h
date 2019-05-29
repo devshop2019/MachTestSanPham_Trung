@@ -3,10 +3,12 @@
 #include "arduino.h"
 #include <LiquidCrystal_I2C.h>
 #include "Sieu_Am.h"
+#include "CB_Dht.h"
 
 /*--------------------------------User define------------------------------*/
 enum{
   SIEU_AM_DEVICE_ID=0,
+  DHT_DEVICE_ID,
   LAST_ID_DEVICE
 };
 /*================================End user define==========================*/
@@ -19,4 +21,6 @@ extern LiquidCrystal_I2C lcd;
 
 extern void Test_SP2();
 extern void Test_Choseen_Menu2();
+extern void initContentManager();
+extern void deInitContentManager();
 #endif
