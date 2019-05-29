@@ -18,7 +18,6 @@ bool Dht_Data::getData() {
     this->valueDevice = String(t) + "    " + String(h);
   }
   
-  
   return true;
 }
 
@@ -30,6 +29,7 @@ bool Dht_Data::init(){
 bool Dht_Data::deInit(){
   if(dht) delete dht;
   pinMode(DHTPIN, INPUT);
+  this->valueDevice = "No device";
 }
 
 Dht_Data Dht_Device;

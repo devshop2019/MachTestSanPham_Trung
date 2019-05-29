@@ -1,11 +1,10 @@
 #include "Sieu_Am.h"
 #include "debugkxn.h"
 #include "ContentManager.h"
+#include "Btn_Process.h"
 
 
 #include <LiquidCrystal_I2C.h>
-
-//#include "DHT.h"
 
 #include "button.h"
 
@@ -17,15 +16,13 @@ button Up(3);     // Cài đặt pin nút nhấn Up là pin 3
 button Down(4);   // Cài đặt pin nút nhấn Down là pin 4
 /* Cài đặt màn hình LCD */
 LiquidCrystal_I2C lcd(0x27,16,2);   // Cài đặt địa chỉ 0x27, hiển thị 16 cột 2 dòng
-/* Cài */
-//DHT dht_11(DHT11, 9);
-//DHT dht_11(DHT11, 9);
-//DHT dht_11(DHT11, 9);
+
 
 // ---------------------------------------------------------------------------------------
 void setup() 
 {
   Serial.begin(9600);
+  buttonInit();
   
   debug("Start!");
   //
@@ -51,11 +48,13 @@ void setup()
 }
 void loop() 
 {
-  Start.loop(); // Xử lý nút Start
-  Up.loop();    // Xử lý nút Up
-  Down.loop();  // Xử lý nút Down
+  // Start.loop(); // Xử lý nút Start
+  // Up.loop();    // Xử lý nút Up
+  // Down.loop();  // Xử lý nút Down
+  buttonLoop();
   Test_Choseen_Menu2();
   Test_SP2();
+  runSerialLife();
 }
 // ---------------------------------------------------------------------------------------
 
@@ -64,6 +63,7 @@ void Start_do_1_Click()
 {
   debugln("1 Click: Do it!");
   initContentManager();
+  contentManager_TimeInterval = 0;
 }
 void Start_do_2_Click()
 {
@@ -76,12 +76,14 @@ void Up_do_0_Click()
   deInitContentManager();
   Choseen_Menu++;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
+  contentManager_TimeInterval = 0;
 }
 void Up_do_1_Click()
 {
   deInitContentManager();
   Choseen_Menu++;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
+  contentManager_TimeInterval = 0;
 }
 
 // Hàm cho nút nhấn Down
@@ -90,12 +92,14 @@ void Down_do_0_Click()
   deInitContentManager();
   Choseen_Menu--;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
+  contentManager_TimeInterval = 0;
 }
 void Down_do_1_Click()
 {
   deInitContentManager();
   Choseen_Menu--;
   debug("1 Click: Menu"); debugln(Choseen_Menu);
+  contentManager_TimeInterval = 0;
 }
 
 // ---------------------------------------------------------------------------------------
@@ -170,3 +174,11 @@ void Test_SP()
   }
 }
 
+unsigned long timeSeriallife = millis();
+
+void runSerialLife(){
+  if(millis() - timeSeriallife >= 1000){
+      timeSeriallife = millis();
+      Serial.println("I live!");
+  }
+}

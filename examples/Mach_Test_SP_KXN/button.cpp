@@ -36,7 +36,7 @@ void button::loop()
   this->last_button = this->state_button;               // Lưu tín hiệu Nút Mode
 
   // --- Sau 0.5s đã xác nhận kiểu bấm nút -> mới cho thay đổi chương trình
-  if(millis() - this->current_Millis > 500)
+  if(millis() - this->current_Millis > 100)
   {
     if(this->count_button == 0 && digitalRead(this->button_pin))  // 1Click nút 'Mode' + đè nút
     {

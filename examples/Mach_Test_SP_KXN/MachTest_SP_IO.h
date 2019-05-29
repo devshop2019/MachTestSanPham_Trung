@@ -14,4 +14,10 @@
 // dht pin out
 #define DHTPIN                  PIN_1
 
+// Button pin
+
+#define BTN_NEXT_PIN			3
+#define BTN_PREVIOUS_PIN		4
+#define BTN_START_PIN			2
+
 #endif

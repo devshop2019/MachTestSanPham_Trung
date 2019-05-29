@@ -6,6 +6,8 @@
 #define debug(x)                  Serial.print(x)     // hiện debug
 #define debugln(x)                Serial.println(x) // hiện debug
 
+#define debug_sieuam(x)				Serial.print(x)     // hiện debug
+
 
 #ifndef EN_DEBUG_KXN
   #define debug(x)                      // tắt debug
