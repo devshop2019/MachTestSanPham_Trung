@@ -6,7 +6,7 @@ DHT *dht;
 
 Dht_Data::Dht_Data(){
   this->nameDevice = "DHT";
-  this->timeInterval=1500;
+  this->timeInterval= 2000;
   this->valueDevice = "No device";
 }
 
@@ -27,7 +27,10 @@ bool Dht_Data::init(){
 }
 
 bool Dht_Data::deInit(){
-  if(dht) delete dht;
+  if(dht){
+    delete dht;
+    dht = 0;
+  }
   pinMode(DHTPIN, INPUT);
   this->valueDevice = "No device";
 }

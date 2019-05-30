@@ -16,7 +16,7 @@ enum{
 extern Data_Adapter *listDevide[LAST_ID_DEVICE];
 extern unsigned long contentManager_TimeInterval;
 
-extern byte Choseen_Menu; // Cài đặt số Menu lựa chọn loại Module
+extern int Choseen_Menu; // Cài đặt số Menu lựa chọn loại Module
 extern unsigned long Current_Millis;
 extern LiquidCrystal_I2C lcd;
 

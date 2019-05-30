@@ -7,7 +7,8 @@ Data_Adapter *listDevide[LAST_ID_DEVICE] = {
 
 unsigned long contentManager_TimeInterval;
 
-byte Choseen_Menu = 0; // Cài đặt số Menu lựa chọn loại Module
+int Choseen_Menu = 0; // Cài đặt số Menu lựa chọn loại Module
+
 unsigned long Current_Millis = millis();
 
 void Test_SP2()

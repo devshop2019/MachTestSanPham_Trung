@@ -27,7 +27,10 @@ bool SieuAm_Data::deInit(){
   pinMode(TRIG_PIN, INPUT);
 //  pinMode(ECHO_PIN, INPUT);
   this->valueDevice = "No device";
-  if(distanceSensor) delete distanceSensor;
+  if(distanceSensor){
+    delete distanceSensor;
+    distanceSensor = 0;
+  }
   debug_sieuam(F("Xoa SIeu am \r\n"));
 }
 
