@@ -12,5 +12,6 @@ extern void buttonLoop();
 extern void Start_do_1_Click();
 extern void Up_do_0_Click();
 extern void Down_do_0_Click();
+extern void Start_do_2_Click();
 
 #endif

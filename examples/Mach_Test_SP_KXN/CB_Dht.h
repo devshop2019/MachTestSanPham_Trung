@@ -11,6 +11,7 @@ class Dht_Data: public Data_Adapter{
   public:
   Dht_Data();
   bool getData();
+  bool reInit(uint8_t _type);
   bool init();
   bool deInit();
 };

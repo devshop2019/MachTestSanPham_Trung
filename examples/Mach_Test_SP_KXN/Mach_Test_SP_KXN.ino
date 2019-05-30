@@ -43,6 +43,8 @@ void Start_do_1_Click()
 void Start_do_2_Click()
 {
   debugln("2 Click: Re Start!");
+  deInitContentManager();
+  contentManager_TimeInterval = 0;
 }
 
 // Hàm cho nút nhấn Up

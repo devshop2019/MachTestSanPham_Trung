@@ -15,15 +15,33 @@ bool Dht_Data::getData() {
   if(dht){
     float h = dht->readHumidity();
     float t = dht->readTemperature();
+    if(isnan(h)){
+      reInit(DHT11);
+      h = dht->readHumidity();
+      t = dht->readTemperature();
+
+    }else if(h < 40){
+      reInit(DHT22);
+      h = dht->readHumidity();
+      t = dht->readTemperature();
+    }
+
     this->valueDevice = String(t) + "    " + String(h);
   }
   
   return true;
 }
 
+bool Dht_Data::reInit(uint8_t _type){
+  deInit();
+  dht = new (DHT)(DHTPIN, _type);
+  dht->begin();
+}
+
 bool Dht_Data::init(){
   deInit();
   dht = new (DHT)(DHTPIN, DHT11);
+  dht->begin();
 }
 
 bool Dht_Data::deInit(){

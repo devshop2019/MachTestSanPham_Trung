@@ -7,7 +7,8 @@ OneButton btn_previous(BTN_PREVIOUS_PIN, false);
 
 void buttonInit(){
 	btn_next.attachClick(&Up_do_0_Click);
-	btn_start.attachClick(&Start_do_1_Click);
+	btn_start.attachClick(&Start_do_2_Click);
+  btn_start.attachDoubleClick(&Start_do_1_Click);
 	btn_previous.attachClick(&Down_do_0_Click);
 }
 
