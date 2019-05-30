@@ -7,6 +7,9 @@ Data_Adapter *listDevide[LAST_ID_DEVICE] = {
 
 unsigned long contentManager_TimeInterval;
 
+byte Choseen_Menu = 0; // Cài đặt số Menu lựa chọn loại Module
+unsigned long Current_Millis = millis();
+
 void Test_SP2()
 {
     if(millis() - Current_Millis > contentManager_TimeInterval )  // Sau mỗi 0.25s mới cập nhập
@@ -39,4 +42,3 @@ void deInitContentManager(){
   if(listDevide[Choseen_Menu])
   listDevide[Choseen_Menu]->deInit();
 }
-

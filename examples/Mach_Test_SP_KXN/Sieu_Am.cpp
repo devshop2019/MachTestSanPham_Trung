@@ -11,11 +11,10 @@ SieuAm_Data::SieuAm_Data(){
 }
 
 bool SieuAm_Data::getData() { 
-  if(distanceSensor)
+  if(distanceSensor){
     debug_sieuam(F("doc SIeu am \r\n"));
-  this->valueDevice = (String)distanceSensor->measureDistanceCm();  
-
-  
+    this->valueDevice = (String)distanceSensor->measureDistanceCm();  
+  }
   return true;
 }
 
@@ -26,7 +25,7 @@ bool SieuAm_Data::init(){
 
 bool SieuAm_Data::deInit(){
   pinMode(TRIG_PIN, INPUT);
-  pinMode(ECHO_PIN, INPUT);
+//  pinMode(ECHO_PIN, INPUT);
   this->valueDevice = "No device";
   if(distanceSensor) delete distanceSensor;
   debug_sieuam(F("Xoa SIeu am \r\n"));
